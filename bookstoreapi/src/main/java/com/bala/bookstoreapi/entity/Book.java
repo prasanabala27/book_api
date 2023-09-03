@@ -12,6 +12,8 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+  	@GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer sno;
 	private String name;
 	@Column(name = "description")
 	private String desc;
@@ -24,23 +26,26 @@ public class Book {
 
 
 
-	public Book(String name, String desc) {
-		super();
-		this.name = name;
-		this.desc = desc;
-	}
+	
 
 
 
-
-	public Book(int id, String name, String desc) {
+	
+	
+	public Book(Integer id, Integer sno, String name, String desc) {
 		super();
 		this.id = id;
+		this.sno = sno;
 		this.name = name;
 		this.desc = desc;
 	}
-	
-	
+
+
+
+
+
+
+
 	public int getId() {
 		return id;
 	}
@@ -59,5 +64,11 @@ public class Book {
 	public void setDesc(String desc) {
 		this.desc = desc;
 	}
+	 public Integer getSno() {
+			return sno;
+		}
+		public void setSno(Integer sno) {
+			this.sno = sno;
+		}
 	
 }

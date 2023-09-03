@@ -22,11 +22,20 @@ public class Bookservice {
 	@Autowired
 	private Bookrepository bookrepo;
 	
-	public List<Book> getBooks(){
+	public List<Book> getBooks(Integer snum){
 		List<Book> booklist = new ArrayList<>();
-		bookrepo.findAll().forEach(book -> booklist.add(book));
+		
+		if (snum ==null) {
+			bookrepo.findAll().forEach(book -> booklist.add(book));
+
+		}else {
+			return bookrepo.findAllBysno(snum);
+		}
+		
 		return booklist;
 	}
+	
+	
 	
 	public Book createBook(Book book) {
 	   return bookrepo.save(book);

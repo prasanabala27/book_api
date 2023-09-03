@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bala.bookstoreapi.BookstoreapiApplication;
@@ -33,11 +34,15 @@ public class Bookcon {
 //		return "helloworld";
 //	}
 	
+//	@RequestMapping("/books")
+//	public List<Book> getBooks(){
+//		return b1.getBooks();	
+//	}
+	
 	@RequestMapping("/books")
-	public List<Book> getBooks(){
-		return b1.getBooks();	
+	public List<Book> getBooks(@RequestParam(value = "sno",required = false) Integer snum){
+		return b1.getBooks(snum);	
 	}
-   
 	@PostMapping("/books") 
 	public Book createBook(@RequestBody Book book) {
 		return b1.createBook(book);
