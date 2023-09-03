@@ -48,8 +48,11 @@ public class Bookcon {
 //	}
 	
 	@RequestMapping("/books")
-	public List<Book> getBooks(@RequestParam(value = "sno",required = false) Set<Integer> snum){
-		return b1.getBooks(snum);	
+	public List<Book> getBooks(
+			@RequestParam(value = "sno",required = false) Set<Integer> snum,
+			@RequestParam(value =  "name",required = false) String name
+			){
+		return b1.getBooks(snum,name);	
 	}
 	
 	@PostMapping("/books") 

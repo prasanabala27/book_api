@@ -12,6 +12,6 @@ import com.bala.bookstoreapi.entity.Book;
 @Repository
 public interface Bookrepository extends JpaRepository<Book, Integer>{
 
-	List<Book> findAllBysnoIn(Set<Integer> snum);
+	List<Book> findAllBysnoInAndName(Set<Integer> snum, String name);
 
 }

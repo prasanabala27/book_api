@@ -23,14 +23,14 @@ public class Bookservice {
 	@Autowired
 	private Bookrepository bookrepo;
 	
-	public List<Book> getBooks(Set<Integer> snum){
+	public List<Book> getBooks(Set<Integer> snum, String name){
 		List<Book> booklist = new ArrayList<>();
 		
 		if (snum ==null) {
 			bookrepo.findAll().forEach(book -> booklist.add(book));
 
 		}else {
-			return bookrepo.findAllBysnoIn(snum);
+			return bookrepo.findAllBysnoInAndName(snum,name);
 		}
 		
 		return booklist;
