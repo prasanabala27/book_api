@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.SpringApplication;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -34,15 +34,24 @@ public class Bookcon {
 //		return "helloworld";
 //	}
 	
+	
+	
 //	@RequestMapping("/books")
 //	public List<Book> getBooks(){
 //		return b1.getBooks();	
 //	}
 	
+//	Single queryparam
+//	@RequestMapping("/books")
+//	public List<Book> getBooks(@RequestParam(value = "sno",required = false) Integer snum){
+//		return b1.getBooks(snum);	
+//	}
+	
 	@RequestMapping("/books")
-	public List<Book> getBooks(@RequestParam(value = "sno",required = false) Integer snum){
+	public List<Book> getBooks(@RequestParam(value = "sno",required = false) Set<Integer> snum){
 		return b1.getBooks(snum);	
 	}
+	
 	@PostMapping("/books") 
 	public Book createBook(@RequestBody Book book) {
 		return b1.createBook(book);
